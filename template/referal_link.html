@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <title>T.F.E</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!-- COMMON TAGS -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<style>::selection{background: #7f1a32;color:white;box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);}
+.btn:hover{
+        transform: scale(1.02);
+      }</style>
+</head>
+<body>
+<div class="container">
+    <div class="card shadow text-center" style="margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    margin-top: 30px;">
+    <div class="card-content" style="margin-top:10px;margin-bottom:10px;">
+        <h5 class="title is-5">Private key của bạn là</h5>
+        <h1 class="title is-1" onclick="copyText(this)">localhost:5000/{{current_user.id}}</h1>
+        <p class="text-secondary">*Click in the referal link to copy</p>
+        <br>
+        <div class="columns">
+            <div class="column w-100"><a href="{{url_for('dashboard')}}" class="btn text-light shadow w-100" style="background-color:#BA2649;">
+            Home
+        </a></div>
+        </div>
+    </div>
+</div>
+<script async type="text/javascript" src="../js/bulma.js"></script>
+    <script>
+        function copyText(element) {
+  var range, selection, worked;
+
+  if (document.body.createTextRange) {
+    range = document.body.createTextRange();
+    range.moveToElementText(element);
+    range.select();
+  } else if (window.getSelection) {
+    selection = window.getSelection();
+    range = document.createRange();
+    range.selectNodeContents(element);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+
+  try {
+    document.execCommand('copy');
+    alert('Copied');
+  }
+  catch (err) {
+    alert('Have some error');
+  }
+}
+    </script>
+</div>
+</body>
+</html>
